@@ -6,3 +6,5 @@ All Dockerfiles for PHP applications are built on the Alpine OS base, ensuring o
 ✅ **Comprehensive Library Support**: Pre-installed essential libraries for **Laravel, Symfony, CakePHP**, including: `pdo_mysql`, `mbstring`, `intl`, `bcmath`, `gd`, `xml`, `zip`, `sockets`, and more.  
 ✅ **Latest PHP Versions**: Supports **PHP 8.4** along with older versions.  
 ✅ **Additional Features**: Integrated Composer, performance optimizations, and support for both development and production environments.  
+✅ **Easily Customizable**: Flexible configurations allow seamless customization based on project needs.
+✅ **Docker Hub Available**: Pull the image directly from Docker Hub for easy deployment.
