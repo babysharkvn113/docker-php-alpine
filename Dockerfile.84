@@ -1,0 +1,16 @@
+FROM composer:2 AS composer
+FROM php:8.4-fpm-alpine
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+# RUN addgroup -g 82 -S www-data 
+# RUN adduser --system --uid 1000 --ingroup www-data www-data
+# ENV COMPOSER_ALLOW_SUPERUSER=1
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-php-extensions && \ 
+    apk add bash &&\
+    install-php-extensions sockets bcmath redis mbstring opcache intl mysqli gd pdo_mysql exif zip xml openssl tokenizer ftp amqp
+
+WORKDIR /var/www/html
+# COPY ../../app/composer.json /var/www/html
+# RUN su -s /bin/bash -c 'composer install' www-data
+COPY php.ini /usr/local/etc/php/
+EXPOSE 9000
